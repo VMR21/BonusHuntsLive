@@ -27,17 +27,18 @@ export default function SlotPickerPage() {
 
   // Filter slots by selected providers
   const filteredSlots = slots.filter(slot => 
-    selectedProviders.has(slot.provider)
+    selectedProviders.size === 0 || selectedProviders.has(slot.provider)
   );
 
-  // Initialize with all providers selected
+// Initialize with all providers selected (run only once)
+const [bootstrapped, setBootstrapped] = useState(false);
+
 useEffect(() => {
-  // only auto-select on first load of providers
-  if (providers.length > 0 && selectedProviders.size === 0) {
+  if (!bootstrapped && providers.length > 0) {
     setSelectedProviders(new Set(providers));
+    setBootstrapped(true);
   }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-}, [providers]); 
+}, [providers, bootstrapped]);
 
 
   const toggleProvider = (provider: string) => {
