@@ -31,11 +31,14 @@ export default function SlotPickerPage() {
   );
 
   // Initialize with all providers selected
-  useEffect(() => {
-    if (providers.length > 0 && selectedProviders.size === 0) {
-      setSelectedProviders(new Set(providers));
-    }
-  }, [providers, selectedProviders.size]);
+useEffect(() => {
+  // only auto-select on first load of providers
+  if (providers.length > 0 && selectedProviders.size === 0) {
+    setSelectedProviders(new Set(providers));
+  }
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [providers]); 
+
 
   const toggleProvider = (provider: string) => {
     const newSelected = new Set(selectedProviders);
