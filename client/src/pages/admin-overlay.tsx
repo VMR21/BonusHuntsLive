@@ -94,8 +94,8 @@ export default function AdminOverlay() {
   const remaining = totalBonuses - openedBonuses.length;
 
   return (
-    <div className="h-screen w-full text-white flex flex-col" style={{ background: 'transparent' }}>
-      <div className="w-full h-full p-4 flex flex-col border-4 border-white rounded-lg min-h-0" style={{ background: 'transparent' }}>
+    <div className="h-screen w-full text-white flex flex-col" style={{ background: 'gray' }}>
+      <div className="w-full h-full p-4 flex flex-col border-4 border-white rounded-lg min-h-0" style={{ background: 'gray' }}>
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-6xl font-black text-white drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{hunt.title}</h1>
