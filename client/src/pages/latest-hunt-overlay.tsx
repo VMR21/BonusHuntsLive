@@ -139,7 +139,7 @@ export default function LatestHuntOverlay() {
 
         {/* Slots List */}
         <div className="bg-black border-2 border-white rounded-lg p-4 flex-1">
-          <div className="relative overflow-hidden flex-1" style={{ height: 'calc(100vh - 350px)' }}>
+          <div className="relative overflow-hidden flex-1" style={{ height: 'calc(100vh - 280px)' }}>
             <div className="space-y-2 animate-scroll">
               {bonuses?.map((bonus: any, index: number) => {
                 const isNext = hunt.isPlaying && !bonus.isPlayed && 
