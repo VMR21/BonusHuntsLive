@@ -72,8 +72,8 @@ export default function LatestHuntOverlay() {
   const remaining = totalBonuses - openedBonuses.length;
 
   return (
-    <div className="min-h-screen w-full text-white overflow-hidden flex flex-col" style={{ background: 'transparent' }}>
-      <div className="w-full h-full p-4 flex flex-col border-4 border-white rounded-lg" style={{ background: 'transparent' }}>
+    <div className="h-screen w-full text-white flex flex-col" style={{ background: 'transparent' }}>
+      <div className="w-full h-full p-4 flex flex-col border-4 border-white rounded-lg min-h-0" style={{ background: 'transparent' }}>
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-6xl font-black text-white drop-shadow-lg" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{hunt.title}</h1>
@@ -138,8 +138,8 @@ export default function LatestHuntOverlay() {
         </div>
 
         {/* Slots List */}
-        <div className="bg-black border-2 border-white rounded-lg p-4 flex-1">
-          <div className="relative overflow-hidden flex-1" style={{ height: 'calc(100vh - 280px)' }}>
+        <div className="bg-black border-2 border-white rounded-lg p-4 flex-1 min-h-0">
+          <div className="relative h-full overflow-hidden">
             <div className="space-y-2 animate-scroll">
               {bonuses?.map((bonus: any, index: number) => {
                 const isNext = hunt.isPlaying && !bonus.isPlayed && 
