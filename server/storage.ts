@@ -415,9 +415,9 @@ export class DatabaseStorage implements IStorage {
 
     const [spentResult] = await db
       .select({
-        totalSpent: sql<number>`coalesce(sum(${bonuses.betAmount}), 0)::numeric`,
+        totalSpent: sql<number>`coalesce(sum(${hunts.startBalance}), 0)::numeric`,
       })
-      .from(bonuses);
+      .from(hunts);
 
     const [wonResult] = await db
       .select({
@@ -450,10 +450,9 @@ export class DatabaseStorage implements IStorage {
 
     const [spentResult] = await db
       .select({
-        totalSpent: sql<number>`coalesce(sum(${bonuses.betAmount}), 0)::numeric`,
+        totalSpent: sql<number>`coalesce(sum(${hunts.startBalance}), 0)::numeric`,
       })
-      .from(bonuses)
-      .innerJoin(hunts, eq(bonuses.huntId, hunts.id))
+      .from(hunts)
       .where(eq(hunts.adminKey, adminKey));
 
     const [wonResult] = await db
